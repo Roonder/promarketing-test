@@ -1,15 +1,5 @@
 import React, {forwardRef} from 'react';
-
-interface ButtonProps { 
-    variant?: string
-    type?: string
-    text?: string
-    icon?: React.ReactNode
-    disabled?: boolean
-    className?: string
-    children?: React.ReactNode
-}
-
+import { ButtonProps } from '@/interfaces/ButtonProps';
 
 const styles: { [key: string]: any} = {
     primary: 'bg-primary hover:bg-primary-500 active:bg-primary-500 border border-primary hover:border-primary-500 active:border-primary/90 text-marble disabled:bg-custom-neutral disabled:border-custom-neutral disabled:text-custom-neutral-500 disabled:cursor-not-allowed',

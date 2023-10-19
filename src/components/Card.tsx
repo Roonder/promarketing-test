@@ -4,19 +4,8 @@ import { HiInformationCircle } from 'react-icons/hi'
 import Image from 'next/image';
 import { Button } from './Button';
 import { useViewport } from '@/hooks/useViewport';
+import { Game } from '@/interfaces/Game';
 
-interface GameProps {
-    id: number;
-    disabled: boolean;
-    info: {
-        moodBonus: boolean;
-        rtp: string;
-        version: string;
-    };
-    name: string;
-    src: string;
-    supplier: string;
-}
 
 const brands: { [key: string]: any} = {
     "playtech": {
@@ -28,7 +17,7 @@ const brands: { [key: string]: any} = {
         "mobile": "/assets/Size=Default.svg"
     },
     "pragmatic": {
-        "desktop": "/assets/Size=title, brand=Pragmatic.svg",
+        "desktop": "/assets/Size=title, brand=Default.svg",
         "mobile": undefined
     },
     "spinomenal": {
@@ -37,7 +26,7 @@ const brands: { [key: string]: any} = {
     }
 }
 
-export const Card = forwardRef<HTMLMediaElement, {game: GameProps}>(({game ,...props}, ref) => {
+export const Card = forwardRef<HTMLMediaElement, {game: Game}>(({game ,...props}, ref) => {
     const {disabled, info: {moodBonus, rtp, version}, name, src: gameImage, supplier} = game;
     const [show, setShow] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
@@ -63,7 +52,7 @@ export const Card = forwardRef<HTMLMediaElement, {game: GameProps}>(({game ,...p
             onMouseLeave={e => setShow(false)}
         >
             <Image 
-                src={brands["playtech"][iconSize()]} 
+                src={brands[supplier][iconSize()]} 
                 alt={`${supplier} game - version`} 
                 width={20} 
                 height={20} 
@@ -87,7 +76,7 @@ export const Card = forwardRef<HTMLMediaElement, {game: GameProps}>(({game ,...p
 
             {show && (
                 <>
-                    <Button text={disabled ? 'No Disponible' :'Jugar Ahora'} disabled={disabled} type='contained' className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:w-[100px] sm:h-[30px] lg:w-fit lg:h-fit whitespace-nowrap'/>
+                    <Button text={disabled ? 'No Disponible' :'Jugar Ahora'} disabled={disabled} variant='accent' type='contained' className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:w-[100px] sm:h-[30px] lg:w-fit lg:h-fit whitespace-nowrap'/>
 
                     <p className='text-white absolute bottom-[16px] left-[9px] font-bold hidden lg:block'>{name}</p>
                 </>
@@ -98,14 +87,14 @@ export const Card = forwardRef<HTMLMediaElement, {game: GameProps}>(({game ,...p
                     <p className=' sm:text-xs lg:text-base lg:whitespace-nowrap'>{name}</p>
                     
                     <div className='flex gap-2 uppercase'>
-                        <p className="sm:p-1 lg:px-2 lg:py-1 bg-accent/30 rounded-[6px] whitespace-nowrap sm:h-[13px] lg:h-fit w-fit sm:text-[7px] lg:text-xs">
+                        <p className="sm:p-[2px] lg:px-2 lg:py-1 bg-accent/30 rounded-[6px] whitespace-nowrap sm:h-[13px] lg:h-fit w-fit sm:text-[7px] lg:text-xs">
                             Version: {version}
                         </p>
-                        <p className="sm:p-1 lg:px-2 lg:py-1 bg-accent/30 rounded-[6px] whitespace-nowrap sm:h-[13px] lg:h-fit w-fit sm:text-[7px] lg:text-xs">
+                        <p className="sm:p-[2px] lg:px-2 lg:py-1 bg-accent/30 rounded-[6px] whitespace-nowrap sm:h-[13px] lg:h-fit w-fit sm:text-[7px] lg:text-xs">
                             RTP: {rtp}
                         </p>
                     </div>
-                    <p className="sm:p-1 lg:px-2 lg:py-1 bg-accent/30 rounded-[6px] whitespace-nowrap sm:h-[13px] lg:h-fit w-fit sm:text-[7px] lg:text-xs">
+                    <p className="sm:p-[2px] lg:px-2 lg:py-1 bg-accent/30 rounded-[6px] whitespace-nowrap sm:h-[13px] lg:h-fit w-fit sm:text-[7px] lg:text-xs">
                         Votalidad: Alta
                     </p> 
                 </section>

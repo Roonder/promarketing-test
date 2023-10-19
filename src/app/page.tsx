@@ -1,22 +1,22 @@
-import { Card } from "@/components/Card";
-
-const dull = {
-  "id": 1,
-  "disabled": true,
-  "info": {
-      "moodBonus": true,
-      "rtp": "95.50%",
-      "version": "v715"
-  },
-  "name": "Wolf Gold",
-  "src": "https://cdn.wcbackoffice.com/winchile/providers/pragmatic/normal/Wolf_Gold_Power_Jackpot.jpeg",
-  "supplier": "playtech"
-}
+import { GamesLoader } from "@/components/GamesLoader";
+import { Button } from "@/components/Button";
+import Link from "next/link";
 
 export default function Home() {
+
   return (
-    <main className="flex flex-col gap-10">
-      <Card game={dull} />
+    <main className="flex flex-col gap-5 p-4">
+
+      <div className="w-full bg-marble p-2">
+        <Link href={"/buttons"}>
+          <Button text="¡Display de los Botones!"/>
+        </Link>
+      </div>
+
+      <h1 className="text-primary uppercase font-bold text-3xl text-center">¡Juegos!</h1>
+
+      <GamesLoader />
+      
     </main>
   )
 }

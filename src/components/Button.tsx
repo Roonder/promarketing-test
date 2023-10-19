@@ -1,12 +1,13 @@
 import React, {forwardRef} from 'react';
 
 interface ButtonProps { 
-    children?: React.ReactNode
     variant?: string
     type?: string
     text?: string
     icon?: React.ReactNode
     disabled?: boolean
+    className?: string
+    children?: React.ReactNode
 }
 
 
@@ -16,11 +17,11 @@ const styles: { [key: string]: any} = {
     'primary-outline': 'bg-transparent hover:bg-primary/10 active:bg-primary-500 border-2 text-primary border-primary active:border-primary active:text-marble disabled:bg-transparent disabled:border-custom-neutral-500 disabled:text-custom-neutral-500 disabled:cursor-not-allowed',
     'accent-outline': 'bg-transparent hover:bg-accent/10 active:bg-accent border-2 text-accent border-accent active:text-marble disabled:bg-transparent disabled:border-custom-neutral-500 disabled:text-custom-neutral-500 disabled:cursor-not-allowed',
     types: {
-        'only-icon': 'flex justify-center items-center max-w-[81.5px]',
-        'icon-left': 'flex gap-1 items-center justify-center max-w-[150px]',
-        'icon-right': 'flex flex-row-reverse gap-1 items-center justify-center max-w-[150px]',
-        'contained': 'text-center max-w-[150px]',
-        'outline': 'text-center max-w-[150px]'
+        'only-icon': 'flex justify-center items-center w-[81.5px]',
+        'icon-left': 'flex gap-1 items-center justify-center',
+        'icon-right': 'flex flex-row-reverse gap-1 items-center justify-center',
+        'contained': 'flex justify-center items-center',
+        'outline': 'flex justify-center items-center'
     }
 };
 
@@ -30,13 +31,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     text,
     icon,
     disabled = false,
+    className,
     children,
     ...props},
      ref) => {
 
     return(
         <>
-            <button disabled={disabled} type="button" ref={ref} className={`py-2 px-5 rounded-md ${styles[variant]} font-bold uppercase ${styles.types[type]}`} {...props}>
+            <button disabled={disabled} type="button" ref={ref} className={`py-2 px-5 rounded-md ${styles[variant]} font-bold uppercase ${styles.types[type]} ${className} sm:text-xs lg:text-base`} {...props}>
               {icon && icon} <p>{text && text}</p>
             </button>
         </>

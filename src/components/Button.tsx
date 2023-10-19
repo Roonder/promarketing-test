@@ -16,11 +16,11 @@ const styles: { [key: string]: any} = {
     'primary-outline': 'bg-transparent hover:bg-primary/10 active:bg-primary-500 border-2 text-primary border-primary active:border-primary active:text-marble disabled:bg-transparent disabled:border-custom-neutral-500 disabled:text-custom-neutral-500 disabled:cursor-not-allowed',
     'accent-outline': 'bg-transparent hover:bg-accent/10 active:bg-accent border-2 text-accent border-accent active:text-marble disabled:bg-transparent disabled:border-custom-neutral-500 disabled:text-custom-neutral-500 disabled:cursor-not-allowed',
     types: {
-        'only-icon': 'text-center',
-        'icon-left': 'flex gap-1 items-center justify-center',
-        'icon-right': 'flex flex-row-reverse gap-1 items-center justify-center',
-        'contained': 'text-center',
-        'outline': 'text-center'
+        'only-icon': 'flex justify-center items-center max-w-[81.5px]',
+        'icon-left': 'flex gap-1 items-center justify-center max-w-[150px]',
+        'icon-right': 'flex flex-row-reverse gap-1 items-center justify-center max-w-[150px]',
+        'contained': 'text-center max-w-[150px]',
+        'outline': 'text-center max-w-[150px]'
     }
 };
 

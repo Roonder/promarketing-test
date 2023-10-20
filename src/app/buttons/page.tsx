@@ -14,7 +14,7 @@ export default function Buttons() {
                 </Link>
             </div>
 
-            <div className="mt-4 grid grid-cols-6 gap-10 p-10 w-full bg-marble sm:rounded-lg lg:rounded-2xl">
+            <div className="mt-4 grid sm:grid-cols-3 items-center place-items-center lg:grid-cols-6 gap-10 p-10 w-full bg-marble sm:rounded-lg lg:rounded-2xl">
                 <Button variant="accent" type="only-icon" icon={<HiArchive />} />
                     
                 <Button text="Left" icon={<HiArchive />}/>
